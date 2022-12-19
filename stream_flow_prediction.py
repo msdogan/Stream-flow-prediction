@@ -94,11 +94,6 @@ except OSError:
 # take fixed holdout set 33% of data rows
 xTrain, xTest, yTrain, yTest = train_test_split(X, y, test_size=0.25, random_state=random_state)
 
-# lower bound, upper bound and step size for number of trees (estimators) in the forest
-lb = 1
-ub = 40
-step = 1
-
 # ******* Random Forest Model *******
 print('running *Random Forest* model')
 # cross-validated parameters
