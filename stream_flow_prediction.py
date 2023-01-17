@@ -1,38 +1,20 @@
 from __future__ import division
 __author__ = 'mustafa s. dogan 9/12/2022'
 import numpy as np
-import time, os
+import pandas as pd
+import os, warnings
 from sklearn import ensemble
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
-import pandas as pd
-
-# ******* Random Forest Model *******
-def run_randomforest(X_est,xTrain,xTest,yTrain,yTest,random_state,iTree=100,max_depth_RF=None,max_features_RF=None):
-  start = time.time()
-  RFModel = ensemble.RandomForestRegressor(n_estimators=iTree,
-                                          max_depth=max_depth_RF, 
-                                          max_features=max_features_RF,
-                                          bootstrap=True,
-                                          n_jobs = -1, # if n_jobs=-1, all cores are used
-                                          random_state=random_state)
-  RFModel.fit(xTrain,yTrain)
-  predictionRF = RFModel.predict(xTest)
-  rmse_RF = (mean_squared_error(yTest, predictionRF))**0.5 # root mean squared error
-  end = time.time()
-  rtime_RF = end-start
-  f_predictionRF = RFModel.predict(X_est) # future prediction
-  c_predictionRF = RFModel.predict(X) # current period prediction
-  f_importances = RFModel.feature_importances_
-  return predictionRF,rmse_RF,rtime_RF,f_predictionRF,c_predictionRF,f_importances
+warnings.simplefilter('ignore')
 
 # Single Station Data
-# data_file='1543'
-# title='Single Station'
+data_file='1543'
+title='Single Station'
 
 # Multi Station Data
-data_file='multi_AGI'
-title='Multi Station'
+# data_file='multi_AGI'
+# title='Multi Station'
 
 print('Model: '+title)
 
