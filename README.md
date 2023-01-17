@@ -7,6 +7,7 @@
  To organize data:
  * Numpy
  * Pandas
+ 
  To create and run Random Forests machine learning model:
  * scikit learn (https://scikit-learn.org/stable/)
 
