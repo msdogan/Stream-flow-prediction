@@ -62,10 +62,6 @@ Names = np.array(Names)
 
 random_state = 10101010 # number to fix random seed
 
-# # ******* Data Properties *******
-
-print('visualizing input data')
-
 # if directory to save model outputs do not exist, create one
 save_path = 'results_'+data_file
 try:
@@ -73,7 +69,7 @@ try:
 except OSError:
   pass
 
-# take fixed holdout set 33% of data rows
+# take fixed holdout set 25% of data rows
 xTrain, xTest, yTrain, yTest = train_test_split(X, y, test_size=0.25, random_state=random_state)
 
 # ******* Random Forest Model *******
